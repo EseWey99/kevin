@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta de Declaración de Amor</title>
+  <style>
+    body {
+      background: url('https://img.freepik.com/vector-gratis/estilo-polka-patron-corazon-amor-lindo-impresion-tela-textil_1017-52352.jpg?t=st=1732342799~exp=1732346399~hmac=9b33493389b1930c5b7ec507c1347e1f99545b9ed4600af441e4972ff0da09ff&w=740') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Georgia', serif;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .envelope {
+      position: relative;
+      width: 500px;
+      height: 300px;
+      background-color: #f4e1d2;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 6px 12px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      border-top: 8px solid #ff3366;
+      transition: transform 0.4s ease, box-shadow 0.3s ease;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .envelope.open:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #f4e1d2;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top;
+      transform: rotateX(180deg);
+      transition: transform 1s ease;
+    }
+
+    .letter {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      background-color: #fff;
+      padding: 30px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      display: none;
+      font-size: 1.4rem;
+      line-height: 1.8;
+      z-index: 1;
+      overflow-y: auto;
+      max-height: 90%;
+    }
+
+    .letter h1 {
+      font-size: 3rem;
+      color: #ff3366;
+      text-align: center;
+      text-shadow: 0 0 10px #ff3366, 0 0 20px #ff3366;
+    }
+
+    .letter p {
+      font-size: 1.3rem;
+      color: #444;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .seal {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 40px;
+      height: 40px;
+      background-color: #ff3366;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .seal::before {
+      content: "L"; /* Reemplazamos la "S" por la "L" */
+      font-size: 2rem;
+    }
+
+    .highlight {
+      color: #ff3366; /* Rosa */
+      font-weight: bold;
+    }
+
+    .heart {
+      color: #ff3366;
+      font-size: 3rem;
+      position: absolute;
+      animation: heart-animation 5s forwards;
+    }
+
+    @keyframes heart-animation {
+      0% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5) translateY(-300px);
+        opacity: 0;
+      }
+    }
+
+    @keyframes openEnvelope {
+      0% {
+        transform: rotateX(0deg);
+      }
+      100% {
+        transform: rotateX(180deg);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .envelope {
+        width: 450px;
+        height: 350px;
+      }
+      .letter h1 {
+        font-size: 2.5rem;
+      }
+      .letter p {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .envelope {
+        width: 400px;
+        height: 300px;
+      }
+      .letter h1 {
+        font-size: 2rem;
+      }
+      .letter p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope" id="envelope" onclick="openEnvelope()">
+    <div class="seal"></div> 
+    <div class="letter" id="letter">
+      <h1>Lezly</h1>
+      <p id="paragraph1">
+        Hola ¿Cómo estás? Me gustaría que esto sea una carta de papel pero mi letra es fea y no que pena jaja. Primero quiero agredecerte por este tiempo que hemos estado hablando porque he estado más feliz y ese es mérito tuyo porque te estas convirtiendo en una persona muy especial para mi y me gusta que sea asi.
+      </p>
+      <p id="paragraph2">
+        Lo he estado pensando mucho y esque tu me gustas y es mucho osea me gusta hablar contigo, me gusta como eres y como te expresas, me gusta verte, me gusta cuando sonríes, hasta me gusta cuando te enojas y cuando te pones de dramatica, me gusta cuándo te ríes y cuando te preocupas por mi. Cada conversación, cada sonrisa, cada gesto tuyo hace que me gustes aún más. También te quiero pedir una disculpa, cuando te hablo feo o te hago sentir mal no lo hago a propósito, no me gusta lastimarte pero esque soy menso y quiero bromear en situaciones que no son para bromear.<span class="highlight">❤️</span>
+      </p>
+      <p id="paragraph3">
+        Ya por último quiero decirte nuevamente que me gustas mucho y yo quiero de verdad pedirte una oportunidad de conocerte bien y así talvez en algún futuro poder llegar a ser algo más que amigos, claro si tú opinas diferente esta bien, y si quieres que me aleje lo entenderé.
+      </p>
+      <p class="signature">
+        Te quiero muchoooo güerita &#x1F495;<br>
+        Att: El morenito
+      </p>
+    </div>
+  </div>
+
+  <script>
+    function generateHearts() {
+      const numberOfHearts = 50;
+      for (let i = 0; i < numberOfHearts; i++) {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+        heart.textContent = '❤️';
+
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        heart.style.left = `${x}px`;
+        heart.style.top = `${y}px`;
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+    }
+
+    function openEnvelope() {
+      const envelope = document.getElementById('envelope');
+      const letter = document.getElementById('letter');
+      envelope.classList.add('open');
+
+      setTimeout(() => {
+        letter.style.display = 'block';
+        generateHearts();
+      }, 1000);
+
+      highlightText();
+    }
+
+    function highlightText() {
+      const paragraphs = document.querySelectorAll('p');
+      
+      paragraphs.forEach(paragraph => {
+        const text = paragraph.innerHTML;
+        const highlightedText = text.replace(/[A-Z¿¡]/g, match => `<span class="highlight">${match}</span>`)
+                                     .replace(/[,\.¿¡?¡¿]/g, match => `<span class="highlight">${match}</span>`)
+        paragraph.innerHTML = highlightedText;
+      });
+    }
+  </script>
+
+</body>
+</html>
